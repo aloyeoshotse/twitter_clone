@@ -2,10 +2,10 @@ import * as React from "react"
 import TweetInput from "./TweetInput"
 import "./TweetBox.css"
 
-export default function TweetBox(props) {
+export default function TweetBox({tweets}) {
   return (
     <div className="tweet-box">
-      <TweetInput />
+      <TweetInput tweets={tweets}/>
 
       <div className="tweet-box-footer">
         <TweetBoxIcons />
