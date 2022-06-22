@@ -7,7 +7,7 @@ export default function TweetInput({tweets, value, handleOnChange}) {
       <AvatarIcon />
 
       <textarea name="new-tweet-input" type="text" placeholder="What's Happening?" value={value} onChange={handleOnChange}>{
-      }</textarea>
+      value}</textarea>
 
       <SmileIcon />
     </div>

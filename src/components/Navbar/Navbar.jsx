@@ -26,7 +26,7 @@ export function NavLink({ navLink }) {
   return (
     <li className={navLink.className}>
       <i className={navLink.icon}></i>
-      <span className={navLink.label}></span>
+      <span className={navLink.label}>{navLink.label}</span>
     </li>
   )
 }

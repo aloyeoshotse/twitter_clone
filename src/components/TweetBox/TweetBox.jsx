@@ -8,7 +8,7 @@ export default function TweetBox({tweets, setTweets, userProfile, tweetText, set
 
   function handleOnTweetTextChange(changeEvent) {
     changeEvent.preventDefault()
-    setTweetText(changeEvent.target.value) //value should equal the textarea element
+    setTweetText(changeEvent.target.value) 
   }
 
   function handleOnSubmit() {
@@ -24,7 +24,7 @@ export default function TweetBox({tweets, setTweets, userProfile, tweetText, set
       <div className="tweet-box-footer">
         <TweetBoxIcons />
         <TweetCharacterCount tweetTextLength={tweetText.length}/>
-        <TweetSubmitButton handleOnSubmit={handleOnSubmit} tweetTextLength={tweetText.length}/>
+        <TweetSubmitButton handleOnSubmit={handleOnSubmit} tweetTextLength={tweetText.length} deactivate={tweetText.length == 0 || tweetText.length > 140}/>
       </div>
     </div>
   )
@@ -46,21 +46,11 @@ export function TweetCharacterCount({tweetTextLength}) {
   return <span className="tweet-length" style={{color: tweetTextLength > 140 ? "red" : "black"}}>{140-tweetTextLength}</span>
 }
 
-export function TweetSubmitButton({handleOnSubmit, tweetTextLength}) {
-  if(tweetTextLength == 0 || tweetTextLength > 140) {
-    return(
-      <div className="tweet-submit">
-      <i className="fas fa-plus-circle"></i>
-      <button className="tweet-submit-button">Tweet</button>
-    </div>
-    )
-  }
-  else{
+export function TweetSubmitButton({handleOnSubmit, tweetTextLength, deactivate}) {
     return (
       <div className="tweet-submit">
         <i className="fas fa-plus-circle"></i>
-        <button className="tweet-submit-button" onClick={handleOnSubmit}>Tweet</button>
+        <button className="tweet-submit-button" onClick={handleOnSubmit} disabled={deactivate}>Tweet</button>
       </div>
     )
-  }
 }
