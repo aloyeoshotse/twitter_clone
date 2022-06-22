@@ -7,7 +7,6 @@ import { useEffect } from "react";
 export default function TweetBox({tweets, setTweets, userProfile, tweetText, setTweetText}) {
 
   function handleOnTweetTextChange(changeEvent) {
-    changeEvent.preventDefault()
     setTweetText(changeEvent.target.value) 
   }
 
@@ -23,7 +22,7 @@ export default function TweetBox({tweets, setTweets, userProfile, tweetText, set
 
       <div className="tweet-box-footer">
         <TweetBoxIcons />
-        <TweetCharacterCount tweetTextLength={tweetText.length}/>
+        <TweetCharacterCount tweetTextLength={tweetText.length} inputLengthEqualZero={tweetText.length===0}/>
         <TweetSubmitButton handleOnSubmit={handleOnSubmit} tweetTextLength={tweetText.length} deactivate={tweetText.length == 0 || tweetText.length > 140}/>
       </div>
     </div>
@@ -41,9 +40,9 @@ export function TweetBoxIcons() {
   )
 }
 
-export function TweetCharacterCount({tweetTextLength}) {
+export function TweetCharacterCount({tweetTextLength, inputLengthEqualZero}) {
   console.log("length=",tweetTextLength)
-  return <span className="tweet-length" style={{color: tweetTextLength > 140 ? "red" : "black"}}>{140-tweetTextLength}</span>
+  return (inputLengthEqualZero ? null : <span className="tweet-length" style={{color: tweetTextLength > 140 ? "red" : "black"}}>{140-tweetTextLength}</span>)
 }
 
 export function TweetSubmitButton({handleOnSubmit, tweetTextLength, deactivate}) {
