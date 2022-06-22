@@ -4,19 +4,22 @@ import "./TweetBox.css"
 import UserProfile from "../UserProfile/UserProfile";
 import { useEffect } from "react";
 
-export default function TweetBox({tweets, setTweets, userProfile}) {
+export default function TweetBox({tweets, setTweets, userProfile, tweetText, setTweetText}) {
 
-  console.log("original=",tweets)
+  function handleOnTweetTextChange(changeEvent) {
+    changeEvent.preventDefault()
+    setTweetText(changeEvent.target.value) //value should equal the textarea element
+  }
 
   function handleOnSubmit() {
-    const newTweet = {id: tweets.length, name: userProfile.name, handle: userProfile.handle, text: "", comments: 0, retweets: 0, likes: 0};
+    const newTweet = {id: tweets.length, name: userProfile.name, handle: userProfile.handle, text: tweetText, comments: 0, retweets: 0, likes: 0};
     setTweets([...tweets, newTweet])
-     console.log("update=",tweets)
+    setTweetText("")
   }
 
   return (
     <div className="tweet-box">
-      <TweetInput tweets={tweets}/>
+      <TweetInput tweets={tweets} value={tweetText} handleOnChange={handleOnTweetTextChange}/>
 
       <div className="tweet-box-footer">
         <TweetBoxIcons />

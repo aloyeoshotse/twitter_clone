@@ -3,11 +3,11 @@ import Tweet from "../Tweet/Tweet"
 import TweetBox from "../TweetBox/TweetBox"
 import "./Feed.css"
 
-export default function Feed({tweets, setTweets, userProfile}) {
+export default function Feed({tweets, setTweets, userProfile, tweetText, setTweetText}) {
   console.log(tweets)
   return (
     <div className="col feed">
-      {<TweetBox tweets={tweets} setTweets={setTweets} userProfile={userProfile}/>}
+      {<TweetBox tweets={tweets} setTweets={setTweets} userProfile={userProfile} tweetText={tweetText} setTweetText={setTweetText}/>}
       <div className="see-new-tweets beet">
         <p>
           See <span>{13}</span> New Tweets
