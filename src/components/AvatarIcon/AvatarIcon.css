@@ -1,5 +1,11 @@
 .avatar-icon {
   display: flex;
+  border-radius: 50%;
+}
+
+.fa-stack-2x {
+  font-size: 2em;
+  border-radius: 50%;
 }
 .avatar-icon i.fa-circle {
   color: var(--twitter-mid-gray);
@@ -14,4 +20,5 @@
   color: var(--twitter-dark-gray);
   font-size: 24px;
   transform: translateY(6px);
+  border-radius: 50%;
 }

@@ -8,6 +8,12 @@ export const formatNumFollowers = (numFollowers) => {
     .toLowerCase()
 }
 
+// export const formatNumFollowing = (numFollowing) => {
+//   return new Intl.NumberFormat("ja-JP", { tyle: 'currency', notation: "compact", maximumSignificantDigits: 3 })
+//     .format(numFollowing)
+//     .toLowerCase()
+// }
+
 export const formatLikes = (numLikes) => {
   return new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 0 }).format(numLikes).toLowerCase()
 }

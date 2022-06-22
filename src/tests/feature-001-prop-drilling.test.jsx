@@ -122,6 +122,7 @@ export function testPropDrilling(App) {
       ctx.testInstances.propAssertions.CardContent.assertComponentExistsAndHasValueInProps("handle")
       ctx.testInstances.propAssertions.CardFooter.assertComponentExistsAndHasValueInProps("numTweets")
       ctx.testInstances.propAssertions.CardFooter.assertComponentExistsAndHasValueInProps("numFollowers")
+      
 
       ctx.testInstances.propAssertions.CardContent.assertComponentExistsAndHasPropOfType("name", "string")
       ctx.testInstances.propAssertions.CardContent.assertComponentExistsAndHasPropOfType("handle", "string")

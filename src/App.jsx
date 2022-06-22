@@ -10,8 +10,9 @@ export default function App() {
   const [userProfile,setUserProfile] = useState(codepathUserProfile);
   const [tweets,setTweets] = useState([firstTweet]);
   const [tweetText,setTweetText] = useState("");
+  userProfile.numFollowing = 100; //add number of following
 
-  //console.log("uP=",userProfile)
+  console.log("uP=",userProfile)
   //console.log("tweets=",tweets)
   return (
     <div className="app">
